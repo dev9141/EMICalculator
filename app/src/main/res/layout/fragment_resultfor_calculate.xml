@@ -192,7 +192,7 @@
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/statstic_materialbutton"
+            android:id="@+id/btnStatstic"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -203,7 +203,97 @@
             android:text="Statistic"/>
 
 
+        <LinearLayout
+            android:id="@+id/llStaticsheader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnStatstic"
+            android:visibility="gone"
+            android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/tvMonthNo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:padding="2dp"
+                android:text="No."
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:background="@drawable/border"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tvOpeningPri"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:visibility="gone"
+                android:text="OpeningPri"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:background="@drawable/border"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tvEMI"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:visibility="gone"
+                android:text="EMI"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:background="@drawable/border"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tvMonthlyPrincipal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Principal"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:background="@drawable/border"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tvMonthInterest"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Interest"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:background="@drawable/border"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tvClosingPri"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="2dp"
+                android:text="Balance"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:background="@drawable/border"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_Statistics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_below="@+id/llStaticsheader"/>
 
 
 

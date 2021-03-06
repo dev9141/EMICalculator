@@ -94,7 +94,7 @@ public class CalculateEMIFragment extends Fragment {
 
         //Switch Process
 
-        inmonthSwitchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        /*inmonthSwitchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b == true) {
@@ -110,7 +110,7 @@ public class CalculateEMIFragment extends Fragment {
 
                 }
             }
-        });
+        });*/
 
 
         //Process for emi calculator
@@ -128,10 +128,10 @@ public class CalculateEMIFragment extends Fragment {
 
                 String year = tenureTextInputEditText.getText().toString();
 
-                if(inmonthSwitchCompat.isChecked()){
-                   // year = year.replace(" Months", "");
-                    year = String.valueOf(Float.parseFloat(year)/12);
-                }
+//                if(inmonthSwitchCompat.isChecked()){
+//                   // year = year.replace(" Months", "");
+//                    year = String.valueOf(Float.parseFloat(year)/12);
+//                }
 
 
                 float p = Float.parseFloat(amount);
@@ -139,7 +139,7 @@ public class CalculateEMIFragment extends Fragment {
                 float y = Float.parseFloat(year);
                 float Principal = calPric(p);
                 float Rate = calInt(i);
-                float Months = calMonth(y);
+                float Months = inmonthSwitchCompat.isChecked() ? y : calMonth(y);
                 float Dvdnt = calDvdnt(Rate, Months);
                 float FD = calFinalDvdnt(Principal, Rate, Dvdnt);
                 float D = calDivider(Dvdnt);

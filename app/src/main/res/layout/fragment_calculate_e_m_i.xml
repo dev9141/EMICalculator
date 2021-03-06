@@ -11,7 +11,7 @@
 
 
     <RelativeLayout
-        android:id="@+id/principle_amount"
+        android:id="@+id/principal_amount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -68,7 +68,7 @@
         android:id="@+id/tenure_range"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/principle_amount">
+        android:layout_below="@id/principal_amount">
 
         <TextView
             android:id="@+id/tenure_textinput"
