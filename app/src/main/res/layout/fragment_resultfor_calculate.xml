@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.ResultforCalculateFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+
+        <com.google.android.material.card.MaterialCardView
+
+            android:id="@+id/mainlayout"
+            android:layout_width="match_parent"
+            android:layout_height="550dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            app:strokeColor="@color/light_orange"
+            app:strokeWidth="1.3dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/cardgradient"
+                android:padding="10dp">
+
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/piechart"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_centerHorizontal="true" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/amount_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/piechart"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="8dp"
+                    android:hint="Loan Amount"
+                   />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/loanamount_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/piechart"
+                    android:layout_marginLeft="40dp"
+                    android:padding="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/amount_text"
+                    android:text="Hello world"
+                     />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tenureresult_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/loanamount_text"
+                    android:layout_marginLeft="20dp"
+                    android:padding="8dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Tenure (Year)"
+                    android:textColor="@color/dark_orange" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tenure_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/loanamount_text"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="5dp"
+                    android:padding="8dp"
+                    android:layout_toRightOf="@id/tenureresult_text"
+                    android:text="hello World"
+                    />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/interestrate_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tenure_text"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:padding="8dp"
+                    android:hint="Interest Rate" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/iofr_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tenure_text"
+                    android:layout_marginLeft="44dp"
+                    android:layout_marginTop="5dp"
+                    android:padding="8dp"
+                    android:text="Interest Rate"
+                    android:layout_toRightOf="@id/interestrate_text"/>
+
+
+                <TextView
+                    android:id="@+id/totalamountwithinterest_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/interestrate_text"
+                    android:layout_marginLeft="20dp"
+                    android:padding="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Total Payable ( Intrest + Principal)" />
+
+                <TextView
+                    android:id="@+id/totalno_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_below="@id/totalamountwithinterest_text"
+                    android:layout_centerHorizontal="true"
+                    android:text="Total Amount with Interest" />
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/totalemipermonth"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mainlayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"
+            app:cardCornerRadius="10dp"
+            android:layout_margin="10dp"
+            app:strokeColor="@color/light_orange"
+            app:cardElevation="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/emi_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:hint="EMI / MONTH"
+                    android:padding="10dp"
+                    android:textColorHint="@color/light_orange" />
+
+                <TextView
+                    android:id="@+id/emirs_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@id/emi_textview"
+                    android:gravity="end"
+                    android:text="\u20B9 "
+                    android:padding="10dp"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/light_orange" />
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/statstic_materialbutton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_below="@+id/totalemipermonth"
+            android:padding="10dp"
+            android:layout_margin="8dp"
+            app:strokeColor="@color/light_orange"
+            android:text="Statistic"/>
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+</ScrollView>

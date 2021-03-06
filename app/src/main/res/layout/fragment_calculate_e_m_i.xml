@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:focusable="false"
+    android:focusableInTouchMode="true"
+    android:padding="10dp">
+
+
+    <RelativeLayout
+        android:id="@+id/principle_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/loan_textinput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Loan Amount (Lakh)"
+            android:padding="5dp"
+            android:textColorHint="@color/light_orange"
+            android:textSize="18sp" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/amount_range"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/loan_textinput"
+            android:layout_marginTop="5dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="8"
+            app:counterTextColor="@color/light_orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Amount_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:inputType="number"
+                android:maxLength="8"
+                android:textColorHint="@color/light_orange" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+
+    <!-- <com.google.android.material.slider.RangeSlider
+         android:id="@+id/Amount_rangeslider"
+         style="@style/Myslider"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/loan_textinput"
+         android:layout_marginTop="8dp"
+         android:stepSize="10000"
+         android:value="3000000"
+         android:valueFrom="0"
+         android:valueTo="3000000"
+         app:labelBehavior="withinBounds" />-->
+
+    <RelativeLayout
+        android:id="@+id/tenure_range"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/principle_amount">
+
+        <TextView
+            android:id="@+id/tenure_textinput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Tenure(Years)"
+            android:padding="5dp"
+            android:textColorHint="@color/light_orange"
+            android:textSize="18sp" />
+
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/inmonth_switch"
+            style="@style/Widget.AppCompat.CompoundButton.Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="@color/dark_orange"
+            android:checked="false"
+            android:hint="In Months"
+            android:padding="1dp"
+            android:textColorHint="@color/light_orange" />
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inmonth_textinput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inmonth_switch"
+            android:layout_marginTop="5dp"
+            app:counterEnabled="true"
+            android:visibility="gone"
+            app:counterMaxLength="3"
+            app:counterTextColor="@color/light_orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inmonth_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="3"
+                android:textColorHint="@color/light_orange" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ten_textinput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inmonth_switch"
+            android:layout_marginTop="5dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="2"
+            app:counterTextColor="@color/light_orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tenure_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="2"
+                android:textColorHint="@color/light_orange" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tenure_range">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/rate_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Interest Rate"
+            android:padding="5dp"
+            android:textColorHint="@color/light_orange"
+            android:textSize="18sp" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/rate_textinput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rate_text"
+            android:layout_marginTop="5dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="5"
+            app:counterTextColor="@color/light_orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/interestrate_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="numberDecimal"
+                android:maxLength="5"
+                android:textColorHint="@color/light_orange" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/emitype_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rate"
+        android:layout_marginLeft="5dp"
+        android:hint="EMI Type"
+        android:textColorHint="@color/light_orange"
+        android:textSize="18sp" />
+
+
+    <LinearLayout
+        android:id="@+id/llayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emitype_textview"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:weightSum="2">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/inadvance_button"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:padding="12dp"
+            android:text="In Advance"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_orange" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/inarrears_button"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:padding="12dp"
+            android:text="In Arrears"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_orange" />
+
+    </LinearLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calculate_button"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llayout"
+        android:layout_marginTop="5dp"
+        android:padding="20dp"
+        android:text="Calculate EMI"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_orange" />
+
+
+</RelativeLayout>
