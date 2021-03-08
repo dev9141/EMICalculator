@@ -19,7 +19,7 @@
             android:layout_height="550dp"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:padding="10dp"
             app:cardCornerRadius="10dp"
@@ -49,9 +49,8 @@
                     android:layout_below="@id/piechart"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
-                    android:padding="8dp"
                     android:hint="Loan Amount"
-                   />
+                    android:padding="8dp" />
 
 
                 <com.google.android.material.textview.MaterialTextView
@@ -60,11 +59,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/piechart"
                     android:layout_marginLeft="40dp"
-                    android:padding="8dp"
                     android:layout_marginTop="10dp"
                     android:layout_toRightOf="@id/amount_text"
-                    android:text="Hello world"
-                     />
+                    android:padding="8dp"
+                    android:text="Hello world" />
 
 
                 <com.google.android.material.textview.MaterialTextView
@@ -73,9 +71,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/loanamount_text"
                     android:layout_marginLeft="20dp"
-                    android:padding="8dp"
                     android:layout_marginTop="5dp"
                     android:hint="Tenure (Year)"
+                    android:padding="8dp"
                     android:textColor="@color/dark_orange" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -85,10 +83,9 @@
                     android:layout_below="@id/loanamount_text"
                     android:layout_marginLeft="40dp"
                     android:layout_marginTop="5dp"
-                    android:padding="8dp"
                     android:layout_toRightOf="@id/tenureresult_text"
-                    android:text="hello World"
-                    />
+                    android:padding="8dp"
+                    android:text="hello World" />
 
 
                 <com.google.android.material.textview.MaterialTextView
@@ -98,8 +95,8 @@
                     android:layout_below="@id/tenure_text"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp"
-                    android:padding="8dp"
-                    android:hint="Interest Rate" />
+                    android:hint="Interest Rate"
+                    android:padding="8dp" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/iofr_text"
@@ -108,9 +105,9 @@
                     android:layout_below="@id/tenure_text"
                     android:layout_marginLeft="44dp"
                     android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@id/interestrate_text"
                     android:padding="8dp"
-                    android:text="Interest Rate"
-                    android:layout_toRightOf="@id/interestrate_text"/>
+                    android:text="Interest Rate" />
 
 
                 <TextView
@@ -119,17 +116,17 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/interestrate_text"
                     android:layout_marginLeft="20dp"
-                    android:padding="8dp"
                     android:layout_marginTop="8dp"
+                    android:padding="8dp"
                     android:text="Total Payable ( Intrest + Principal)" />
 
                 <TextView
                     android:id="@+id/totalno_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
                     android:layout_below="@id/totalamountwithinterest_text"
                     android:layout_centerHorizontal="true"
+                    android:padding="8dp"
                     android:text="Total Amount with Interest" />
 
 
@@ -145,12 +142,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/mainlayout"
             android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
             android:layout_marginTop="15dp"
             android:padding="10dp"
             app:cardCornerRadius="10dp"
-            android:layout_margin="10dp"
-            app:strokeColor="@color/light_orange"
-            app:cardElevation="5dp">
+            app:cardElevation="5dp"
+            app:strokeColor="@color/light_orange">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -179,8 +176,8 @@
                     android:layout_marginRight="10dp"
                     android:layout_toRightOf="@id/emi_textview"
                     android:gravity="end"
-                    android:text="\u20B9 "
                     android:padding="10dp"
+                    android:text="\u20B9 "
                     android:textAlignment="textEnd"
                     android:textColor="@color/light_orange" />
 
@@ -193,109 +190,120 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnStatstic"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_below="@+id/totalemipermonth"
-            android:padding="10dp"
             android:layout_margin="8dp"
-            app:strokeColor="@color/light_orange"
-            android:text="Statistic"/>
+            android:padding="10dp"
+            android:text="Statistic"
+            app:strokeColor="@color/light_orange" />
 
-
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/llStaticsheader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btnStatstic"
             android:visibility="gone"
-            android:orientation="horizontal">
+            android:layout_margin="5dp"
+            app:cardElevation="3dp"
+            android:backgroundTint="@color/light_grey"
+            style="@style/Widget.MaterialComponents.CardView"
+            app:strokeWidth="1.2dp">
 
-            <TextView
-                android:id="@+id/tvMonthNo"
-                android:layout_width="0dp"
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:padding="2dp"
-                android:text="No."
-                android:gravity="center"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:background="@drawable/border"
-                android:textSize="18sp"/>
+                android:orientation="horizontal"
 
-            <TextView
-                android:id="@+id/tvOpeningPri"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="2dp"
-                android:visibility="gone"
-                android:text="OpeningPri"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:background="@drawable/border"
-                android:textSize="18sp"/>
+                >
 
-            <TextView
-                android:id="@+id/tvEMI"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="2dp"
-                android:visibility="gone"
-                android:text="EMI"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:background="@drawable/border"
-                android:textSize="18sp"/>
+                <TextView
+                    android:id="@+id/tvMonthNo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    android:text="No."
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/tvMonthlyPrincipal"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="2dp"
-                android:text="Principal"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:background="@drawable/border"
-                android:textSize="18sp"/>
+                <TextView
+                    android:id="@+id/tvOpeningPri"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="OpeningPri"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
 
-            <TextView
-                android:id="@+id/tvMonthInterest"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="2dp"
-                android:text="Interest"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:background="@drawable/border"
-                android:textSize="18sp"/>
+                <TextView
+                    android:id="@+id/tvEMI"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="EMI"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
 
-            <TextView
-                android:id="@+id/tvClosingPri"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="2dp"
-                android:text="Balance"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:background="@drawable/border"
-                android:textSize="18sp"/>
+                <TextView
+                    android:id="@+id/tvMonthlyPrincipal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    android:text="Principal"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tvMonthInterest"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    android:text="Interest"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvClosingPri"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    android:text="Balance"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_Statistics"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_below="@+id/llStaticsheader"/>
-
-
+            android:layout_below="@+id/llStaticsheader"
+            android:visibility="gone" />
 
 
     </RelativeLayout>

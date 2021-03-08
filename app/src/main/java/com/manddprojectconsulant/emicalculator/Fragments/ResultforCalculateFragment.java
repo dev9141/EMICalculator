@@ -3,6 +3,7 @@ package com.manddprojectconsulant.emicalculator.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,6 +22,7 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.google.android.material.card.MaterialCardView;
 import com.manddprojectconsulant.emicalculator.R;
 import com.manddprojectconsulant.emicalculator.StatisticsAdapter;
 
@@ -47,7 +49,7 @@ public class ResultforCalculateFragment extends Fragment {
     double totalamount;
     ArrayList<Statistics> ArrStatistics;
     RecyclerView rv_Statistics;
-    LinearLayout llStaticsheader;
+    MaterialCardView llStaticsheader;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
