@@ -39,7 +39,7 @@ public class ResultforCalculateFragment extends Fragment {
     //Normal
 
     TextView loanamountTextView, tenure_text, iofr_text, emirs_textview, totalratewithrate_text, totalinterest_text, intererst_monthTextView;
-    String principal, tenure, rate, totalIntrest, monthlyemi;
+    String principal, tenure, rate, totalIntrest, monthlyemi, tenureIn;
 
     TextView totalno_text;
     DecimalFormat formatter;
@@ -62,6 +62,7 @@ public class ResultforCalculateFragment extends Fragment {
 
         principal = getArguments().getString("principal");
         tenure = getArguments().getString("tenure");
+        tenureIn = getArguments().getString("tenureIn");
         rate = getArguments().getString("interestrate");
         totalIntrest = getArguments().getString("totalpayment");
         monthlyemi = getArguments().getString("monthlyemi");
@@ -131,7 +132,14 @@ public class ResultforCalculateFragment extends Fragment {
 
 
                 Double t = Double.valueOf(tenure);
-                int n = t.intValue();
+                int n = 0;
+
+                if(tenureIn.equals("Year")){
+                   n = t.intValue() * 12;
+                }
+                else {
+                    n = t.intValue();
+                }
 
                 for(int i = 0; i < n; i++){
 

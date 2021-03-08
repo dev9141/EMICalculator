@@ -151,6 +151,7 @@ public class CalculateEMIFragment extends Fragment {
                 Bundle emical = new Bundle();
                 emical.putString("principal", String.valueOf(p));
                 emical.putString("tenure", String.valueOf(y));
+                emical.putString("tenureIn", inmonthSwitchCompat.isChecked() ? "Month" : "Year");
                 emical.putString("interestrate", String.valueOf(i));
                 emical.putString("monthlyemi", String.valueOf(emi));
                 emical.putString("totalpayment", String.valueOf(ti));
