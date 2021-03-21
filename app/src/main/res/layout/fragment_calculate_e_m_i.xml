@@ -208,30 +208,47 @@
         android:padding="10dp"
         android:weightSum="2">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/inadvance_button"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:padding="12dp"
-            android:text="In Advance"
-            android:textAllCaps="false"
-            android:textColor="@color/dark_orange" />
+        <RadioGroup
+            android:id="@+id/emitype"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/inarrears_button"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:padding="12dp"
-            android:text="In Arrears"
-            android:textAllCaps="false"
-            android:textColor="@color/dark_orange" />
+            <RadioButton
+                android:id="@+id/inadvance_button"
+                android:layout_width="0dp"
+                style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="12dp"
+                android:checked="false"
+                android:textSize="18sp"
+                android:text="In Advance"
+                android:textColor="@color/light_orange"/>
+
+            <RadioButton
+                android:id="@+id/inarrears_button"
+                style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="12dp"
+                android:checked="false"
+                android:textSize="18sp"
+                android:text="In Arrears"
+                android:textColor="@color/light_orange"/>
+
+
+
+
+
+
+
+        </RadioGroup>
+
+
+
+
 
     </LinearLayout>
 
