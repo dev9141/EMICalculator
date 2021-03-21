@@ -14,6 +14,7 @@ import com.manddprojectconsulant.emicalculator.R;
 
 public class DashboardFragment extends Fragment {
 
+    CompareFragment compareFragment=new CompareFragment();
     CalculateEMIFragment calculateEMIFragment = new CalculateEMIFragment();
     MaterialButton emicalculates_button, compare_button;
 
@@ -37,6 +38,15 @@ public class DashboardFragment extends Fragment {
 
                 getFragmentManager().beginTransaction().replace(R.id.relative,calculateEMIFragment).addToBackStack(null).commit();
 
+
+            }
+        });
+
+        compare_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                getFragmentManager().beginTransaction().replace(R.id.relative,compareFragment).addToBackStack(null).commit();
 
             }
         });
