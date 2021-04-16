@@ -1,11 +1,457 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.CompareFragment">
 
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
 
-</RelativeLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardtocompare"
+            style="@style/Widget.MaterialComponents.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="20dp"
+            app:strokeColor="@color/light_orange"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="280dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:hint="@string/loan_one"
+                        android:padding="10dp" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/loanamountone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/amount"
+                            android:inputType="number"
+                            android:maxLength="8" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tenureone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/tenure"
+                            android:inputType="number"
+                            android:maxLength="2" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/interestrateone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/interest_rate"
+                            android:inputType="numberDecimal"
+                            android:maxLength="5" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="200dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@color/light_orange" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="280dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:hint="@string/loan_two"
+                        android:padding="10dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="center">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/loanamounttwo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/amount"
+                            android:inputType="number"
+                            android:maxLength="8" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tenuretwo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/tenure"
+                            android:inputType="number"
+                            android:maxLength="2" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/interestratetwo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/interest_rate"
+                            android:inputType="numberDecimal"
+                            android:maxLength="5" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/compare_button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_margin="20dp"
+                android:padding="20dp"
+                android:text="@string/compare" />
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardmonthlyemi"
+            style="@style/Widget.MaterialComponents.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardtocompare"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:visibility="gone"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="20dp"
+            app:strokeWidth="1dp">
+
+
+            <RelativeLayout
+                android:id="@+id/rltitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/emi_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:hint="@string/emi_monthly_payment"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/resultone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/emi_title"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/u20b9_13_693_6"
+                    android:textSize="20sp" />
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/emi_title"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginLeft="42dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf="@id/resultone"
+                    android:layout_toRightOf="@id/resultone"
+                    android:background="@color/light_orange" />
+
+
+                <TextView
+                    android:id="@+id/resulttwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/emi_title"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginRight="40dp"
+                    android:gravity="center"
+                    android:text="@string/u20b9_13_693_6"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/differenceforemi_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/resultone"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Difference"
+                    android:textSize="18sp" />
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.MaterialComponents.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardinterestrate"
+            android:layout_below="@id/cardmonthlyemi"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:visibility="gone"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="20dp"
+            app:strokeWidth="1dp">
+
+
+            <RelativeLayout
+                android:id="@+id/rltitl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/totalinterestpayable_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:hint="@string/total_interest_payable"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/resultotalinterest_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/totalinterestpayable_title"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/u20b9_13_693_6"
+                    android:textSize="20sp" />
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/totalinterestpayable_title"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginLeft="42dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf="@id/resultotalinterest_one"
+                    android:layout_toRightOf="@id/resultotalinterest_one"
+                    android:background="@color/light_orange" />
+
+
+                <TextView
+                    android:id="@+id/resultotalinterest_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/totalinterestpayable_title"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginRight="40dp"
+                    android:gravity="center"
+                    android:text="@string/u20b9_13_693_6"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/differenceforinterestrate_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/resultotalinterest_two"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Difference"
+                    android:textSize="18sp" />
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.MaterialComponents.CardView"
+            android:id="@+id/cardtotal"
+             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardinterestrate"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:visibility="gone"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="20dp"
+            app:strokeWidth="1dp">
+
+
+            <RelativeLayout
+                android:id="@+id/rltit2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/totalpayable_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:hint="@string/total_payment_principal_interest"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/resultotalpayable_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/totalpayable_title"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/u20b9_13_693_6"
+                    android:textSize="20sp" />
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/totalpayable_title"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginLeft="42dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf="@id/resultotalpayable_one"
+                    android:layout_toRightOf="@id/resultotalpayable_one"
+                    android:background="@color/light_orange" />
+
+
+                <TextView
+                    android:id="@+id/resultotalpayable_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/totalpayable_title"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginRight="40dp"
+                    android:gravity="center"
+                    android:text="@string/u20b9_13_693_6"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/differencefortotalpayable_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/resultotalpayable_one"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Difference"
+                    android:textSize="18sp" />
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </RelativeLayout>
+</ScrollView>
