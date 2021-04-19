@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,8 +63,6 @@ public class CurrencyConverterFragment extends Fragment {
         tocurrency.setAdapter(customAdapter);*/
 
 
-        String from = fromcurrency.getSelectedItem().toString();
-        Toast.makeText(getContext(), "From" + from, Toast.LENGTH_SHORT).show();
 
 
         convertButton.setOnClickListener(new View.OnClickListener() {
@@ -83,36 +82,30 @@ public class CurrencyConverterFragment extends Fragment {
     private void Convertfunction() {
 
         CurrencyRetrofitInterface currencyRetrofitInterface = CurrencyRetrofitBuild.getRetrofit().create(CurrencyRetrofitInterface.class);
-        Call<JSONObject> call = currencyRetrofitInterface.getExchangeCurrency(fromcurrency.getSelectedItem().toString());
-        call.enqueue(new Callback<JSONObject>() {
+        Call<JsonObject> call = currencyRetrofitInterface.getExchangeCurrency(fromcurrency.getSelectedItem().toString());
+        call.enqueue(new Callback<JsonObject>() {
             @Override
-            public void onResponse(Call<JSONObject> call, Response<JSONObject> response) {
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                Log.d("TAG", "onResponse: "+response.body());
+                JsonObject res=response.body();
+                JsonObject rates=res.getAsJsonObject("rates");
+                double currencyconverted= Double.valueOf(amountEditText.getText().toString());
+                double multiplier=Double.valueOf(rates.get(tocurrency.getSelectedItem().toString()).toString());
+                double result=currencyconverted*multiplier;
 
-                JSONObject object = response.body();
-                try {
-                    JSONObject jsonObject = object.getJSONObject("conversion_rates");
-                    double rates = Double.parseDouble(amountEditText.getText().toString());
-                    double multiplier = Double.valueOf(jsonObject.get(tocurrency.getSelectedItem().toString()).toString());
-                    double result = rates * multiplier;
+                String result1= String.valueOf(result);
+                resultforcurrency_textview.setText(result1);
 
-                    String r = String.valueOf(result);
-
-                    resultforcurrency_textview.setHint(r);
-
-
-                } catch (JSONException e) {
-                    Toast.makeText(getContext(), "Error"+e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
 
             }
 
             @Override
-            public void onFailure(Call<JSONObject> call, Throwable t) {
-
-                Toast.makeText(getContext(), "Fault in Internet", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<JsonObject> call, Throwable t) {
 
             }
         });
+
+
 
     }
 

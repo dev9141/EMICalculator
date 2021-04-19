@@ -12,7 +12,7 @@ public class CurrencyRetrofitBuild {
         if (retrofit==null)
         {
             retrofit = new Retrofit.Builder()
-                    .baseUrl("https://v6.exchangerate-api.com/")
+                    .baseUrl("https://api.exchangerate-api.com/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
