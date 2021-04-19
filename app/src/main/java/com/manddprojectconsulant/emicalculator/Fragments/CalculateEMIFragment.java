@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,11 +30,14 @@ public class CalculateEMIFragment extends Fragment {
 
     String numberregex = "\\p{Digit}+";
     MaterialButton calculateMaterialButton;
+    //RadioButton inadvance_button,inarrears_button;
     TextInputEditText interestrateTextInputEditText,AmountTextInputEditText, tenureTextInputEditText,InmonthtenureTextInputEditText;
     SwitchCompat inmonthSwitchCompat;
     ResultforCalculateFragment resultforCalculateFragment = new ResultforCalculateFragment();
     TextInputLayout interestrateTextInputLayout;
 
+    String inadvance,inarrears;
+    RadioGroup emitype;
 
 
 
@@ -53,9 +58,42 @@ public class CalculateEMIFragment extends Fragment {
         tenureTextInputEditText = view.findViewById(R.id.tenure_edittext);
         interestrateTextInputEditText = view.findViewById(R.id.interestrate_edittext);
         calculateMaterialButton = view.findViewById(R.id.calculate_button);
+        /*inadvance_button = view.findViewById(R.id.inadvance_button);
+        inarrears_button = view.findViewById(R.id.inarrears_button);*/
         inmonthSwitchCompat = view.findViewById(R.id.inmonth_switch);
+        emitype=view.findViewById(R.id.emitype);
 
 
+
+
+        emitype.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (radioGroup.getId())
+                {
+                    case R.id.inadvance_button:
+
+                        inadvance= "In Advance";
+
+
+
+                        break;
+
+                    case  R.id.inarrears_button:
+
+                            inarrears="In Arrears";
+
+                        break;
+
+
+
+                }
+
+
+
+
+            }
+        });
 
 
 
@@ -121,6 +159,10 @@ public class CalculateEMIFragment extends Fragment {
 
 
 
+
+
+
+
                 String amount = AmountTextInputEditText.getText().toString();
                 amount = amount.replace(",", "");
 
@@ -132,6 +174,10 @@ public class CalculateEMIFragment extends Fragment {
 //                   // year = year.replace(" Months", "");
 //                    year = String.valueOf(Float.parseFloat(year)/12);
 //                }
+
+
+
+
 
 
                 float p = Float.parseFloat(amount);
@@ -151,6 +197,7 @@ public class CalculateEMIFragment extends Fragment {
                 Bundle emical = new Bundle();
                 emical.putString("principal", String.valueOf(p));
                 emical.putString("tenure", String.valueOf(y));
+                emical.putString("tenureIn", inmonthSwitchCompat.isChecked() ? "Month" : "Year");
                 emical.putString("interestrate", String.valueOf(i));
                 emical.putString("monthlyemi", String.valueOf(emi));
                 emical.putString("totalpayment", String.valueOf(ti));

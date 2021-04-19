@@ -3,4 +3,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Rs">\u20B9</string>
+    <string name="compare">Compare</string>
+    <string name="loan_one">Loan One</string>
+    <string name="amount">Amount</string>
+    <string name="tenure">Tenure</string>
+    <string name="interest_rate">Interest Rate</string>
+    <string name="loan_two">Loan Two</string>
+    <string name="emi_monthly_payment">EMI (Monthly Payment)</string>
+    <string name="u20b9_13_693_6">₹ 13,693.6</string>
+    <string name="total_interest_payable">Total Interest Payable</string>
+    <string name="total_payment_principal_interest">Total Payment ( Principal + Interest )</string>
 </resources>
