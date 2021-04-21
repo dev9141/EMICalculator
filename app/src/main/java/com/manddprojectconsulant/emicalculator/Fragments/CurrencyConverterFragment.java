@@ -34,6 +34,7 @@ public class CurrencyConverterFragment extends Fragment {
     String[] countryNames = {"INR", "USD", "CAD", "CNY", "EUR", "NZD"};
     int flags[] = {R.drawable.ic_india, R.drawable.ic_usa, R.drawable.ic_canada, R.drawable.ic_china, R.drawable.ic_united, R.drawable.ic_newzealand};
     TextView resultforcurrency_textview;
+    String FromUSD_INR;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,7 +81,7 @@ public class CurrencyConverterFragment extends Fragment {
 
 
         String ToINR_USD=tocurrency.getSelectedItem().toString()+"_"+fromcurrency.getSelectedItem().toString();
-        String FromUSD_INR=fromcurrency.getSelectedItem().toString()+"_"+tocurrency.getSelectedItem().toString();
+        FromUSD_INR=fromcurrency.getSelectedItem().toString()+"_"+tocurrency.getSelectedItem().toString();
 
         CurrencyRetrofitInterface currencyRetrofitInterface = CurrencyRetrofitBuild.getRetrofit().create(CurrencyRetrofitInterface.class);
         Call<JsonObject> call = currencyRetrofitInterface.getExchangeCurrency(fromcurrency.getSelectedItem().toString());
@@ -93,12 +94,21 @@ public class CurrencyConverterFragment extends Fragment {
                 JsonObject add=object.getAsJsonObject("USD_INR");
                 Double amount= Double.valueOf(amountEditText.getText().toString());
 
-                Double val= Double.valueOf(String.valueOf(add.get("val")));
 
-                double result=amount*val;
-                String r= String.valueOf(result);
+                //add.get("val")
 
-                resultforcurrency_textview.setText(r);
+                    FromUSD_INR= String.valueOf(add.get("val"));
+
+                    Double h= Double.valueOf(FromUSD_INR);
+                    double result=amount*h;
+
+                    String r= String.valueOf(result);
+                    resultforcurrency_textview.setText(r);
+
+
+
+
+
 
 
 
