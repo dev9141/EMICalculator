@@ -14,8 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="EMI Functions"
+        android:fontFamily="@font/donegal_one"
         android:padding="10dp"
-        android:textColorHint="@color/light_orange"
+        android:textColorHint="@color/dark_teal"
         android:textSize="18sp" />
 
 
@@ -28,8 +29,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         app:cardCornerRadius="10dp"
-        app:cardElevation="15dp"
-
+        app:cardElevation="10dp"
+        app:strokeColor="@color/light_teal"
         app:strokeWidth="1dp">
 
 
@@ -42,22 +43,21 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/emicalculates_button"
-                    android:layout_width="0dp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:gravity="center"
                     android:drawableTop="@drawable/ic_baseline_calculate_24"
+                    android:gravity="center"
                     android:hint="Calculates"
+                    android:fontFamily="@font/donegal_one"
                     android:padding="10dp"
-                    android:drawableTint="@color/light_orange"
-
                     android:textSize="18sp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/compareloan_button"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"
@@ -66,7 +66,7 @@
                     android:gravity="center"
                     android:hint="Compare Loan"
                     android:padding="10dp"
-
+                    android:fontFamily="@font/donegal_one"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -80,9 +80,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="Currency Converter"
+        android:fontFamily="@font/donegal_one"
         android:padding="10dp"
         android:layout_below="@id/emifunctioncardview"
-        android:textColorHint="@color/light_orange"
+        android:textColorHint="@color/dark_teal"
         android:textSize="18sp" />
 
     <com.google.android.material.card.MaterialCardView
@@ -93,7 +94,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         app:cardCornerRadius="10dp"
-        app:cardElevation="15dp"
+        app:cardElevation="10dp"
+        app:strokeColor="@color/light_teal"
         app:strokeWidth="1dp">
 
 
@@ -116,8 +118,7 @@
             android:drawableTop="@drawable/ic_currency"
             android:hint="Currency converter"
             android:padding="10dp"
-            android:drawableTint="@color/light_orange"
-
+            android:fontFamily="@font/donegal_one"
             android:textSize="18sp" />
 
 

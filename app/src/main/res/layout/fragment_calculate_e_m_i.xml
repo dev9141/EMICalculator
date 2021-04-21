@@ -22,7 +22,8 @@
             android:layout_height="wrap_content"
             android:hint="Loan Amount (Lakh)"
             android:padding="5dp"
-            android:textColorHint="@color/light_orange"
+            android:fontFamily="@font/donegal_one"
+            android:textColorHint="@color/light_teal"
             android:textSize="18sp" />
 
 
@@ -35,7 +36,7 @@
             android:layout_marginTop="5dp"
             app:counterEnabled="true"
             app:counterMaxLength="8"
-            app:counterTextColor="@color/light_orange">
+            app:counterTextColor="@color/dark_teal">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Amount_edittext"
@@ -44,7 +45,7 @@
                 android:text=""
                 android:inputType="number"
                 android:maxLength="8"
-                android:textColorHint="@color/light_orange" />
+                android:textColorHint="@color/dark_teal" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,7 +78,8 @@
             android:layout_marginTop="8dp"
             android:hint="Tenure(Years)"
             android:padding="5dp"
-            android:textColorHint="@color/light_orange"
+            android:fontFamily="@font/donegal_one"
+            android:textColorHint="@color/light_teal"
             android:textSize="18sp" />
 
 
@@ -87,11 +89,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:backgroundTint="@color/dark_orange"
+            android:backgroundTint="@color/dark_teal"
             android:checked="false"
             android:hint="In Months"
             android:padding="1dp"
-            android:textColorHint="@color/light_orange" />
+            android:fontFamily="@font/donegal_one"
+            android:textColorHint="@color/light_teal" />
 
 
 
@@ -130,7 +133,7 @@
             android:layout_marginTop="5dp"
             app:counterEnabled="true"
             app:counterMaxLength="2"
-            app:counterTextColor="@color/light_orange">
+            app:counterTextColor="@color/dark_teal">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tenure_edittext"
@@ -138,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLength="2"
-                android:textColorHint="@color/light_orange" />
+                android:textColorHint="@color/light_teal" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -160,7 +163,8 @@
             android:layout_marginTop="8dp"
             android:hint="Interest Rate"
             android:padding="5dp"
-            android:textColorHint="@color/light_orange"
+            android:fontFamily="@font/donegal_one"
+            android:textColorHint="@color/light_teal"
             android:textSize="18sp" />
 
 
@@ -173,7 +177,7 @@
             android:layout_marginTop="5dp"
             app:counterEnabled="true"
             app:counterMaxLength="5"
-            app:counterTextColor="@color/light_orange">
+            android:textColorHint="@color/light_teal">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/interestrate_edittext"
@@ -182,75 +186,12 @@
                 android:hint=""
                 android:inputType="numberDecimal"
                 android:maxLength="5"
-                android:textColorHint="@color/light_orange" />
+                android:textColorHint="@color/light_teal" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/emitype_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rate"
-        android:layout_marginLeft="5dp"
-        android:hint="EMI Type"
-        android:textColorHint="@color/light_orange"
-        android:textSize="18sp" />
-
-
-    <LinearLayout
-        android:id="@+id/llayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/emitype_textview"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:weightSum="2">
-
-        <RadioGroup
-            android:id="@+id/emitype"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/inadvance_button"
-                android:layout_width="0dp"
-                style="@style/Widget.AppCompat.CompoundButton.RadioButton"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="12dp"
-                android:checked="false"
-                android:textSize="18sp"
-                android:text="In Advance"
-                android:textColor="@color/light_orange"/>
-
-            <RadioButton
-                android:id="@+id/inarrears_button"
-                style="@style/Widget.AppCompat.CompoundButton.RadioButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="12dp"
-                android:checked="false"
-                android:textSize="18sp"
-                android:text="In Arrears"
-                android:textColor="@color/light_orange"/>
-
-
-
-
-
-
-
-        </RadioGroup>
-
-
-
-
-
-    </LinearLayout>
 
 
     <com.google.android.material.button.MaterialButton
@@ -258,12 +199,12 @@
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llayout"
+        android:layout_below="@+id/rate"
         android:layout_marginTop="5dp"
         android:padding="20dp"
-        android:text="Calculate EMI"
+        android:hint="Calculate EMI"
         android:textAllCaps="false"
-        android:textColor="@color/dark_orange" />
+        android:fontFamily="@font/donegal_one" />
 
 
 </RelativeLayout>

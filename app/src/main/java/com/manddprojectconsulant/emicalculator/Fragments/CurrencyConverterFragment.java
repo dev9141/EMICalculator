@@ -15,14 +15,11 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.manddprojectconsulant.emicalculator.Adapter.CountrySymbolAdapter;
 import com.manddprojectconsulant.emicalculator.CurrencyConvert.CurrencyRetrofitBuild;
 import com.manddprojectconsulant.emicalculator.CurrencyConvert.CurrencyRetrofitInterface;
 import com.manddprojectconsulant.emicalculator.R;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -81,6 +78,10 @@ public class CurrencyConverterFragment extends Fragment {
 
     private void Convertfunction() {
 
+
+        String ToINR_USD=tocurrency.getSelectedItem().toString()+"_"+fromcurrency.getSelectedItem().toString();
+        String FromUSD_INR=fromcurrency.getSelectedItem().toString()+"_"+tocurrency.getSelectedItem().toString();
+
         CurrencyRetrofitInterface currencyRetrofitInterface = CurrencyRetrofitBuild.getRetrofit().create(CurrencyRetrofitInterface.class);
         Call<JsonObject> call = currencyRetrofitInterface.getExchangeCurrency(fromcurrency.getSelectedItem().toString());
         call.enqueue(new Callback<JsonObject>() {
@@ -88,19 +89,37 @@ public class CurrencyConverterFragment extends Fragment {
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 Log.d("TAG", "onResponse: "+response.body());
                 JsonObject res=response.body();
-                JsonObject rates=res.getAsJsonObject("rates");
-                double currencyconverted= Double.valueOf(amountEditText.getText().toString());
-                double multiplier=Double.valueOf(rates.get(tocurrency.getSelectedItem().toString()).toString());
-                double result=currencyconverted*multiplier;
+                JsonObject object=res.getAsJsonObject("results");
+                JsonObject add=object.getAsJsonObject("USD_INR");
+                Double amount= Double.valueOf(amountEditText.getText().toString());
+
+                Double val= Double.valueOf(String.valueOf(add.get("val")));
+
+                double result=amount*val;
+                String r= String.valueOf(result);
+
+                resultforcurrency_textview.setText(r);
+
+
+
+
+                /*//INR >> USD
+
+                //to
+                //to fromcurrency.getSelectedItem().toString()+"_"+tocurrency.getSelectedItem().toString()
+                //INR >> USD && USD >> INR
+                //Chart
 
                 String result1= String.valueOf(result);
                 resultforcurrency_textview.setText(result1);
-
+*/
 
             }
 
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                Toast.makeText(getContext(), "Fault in Internet"+t.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
