@@ -37,8 +37,8 @@ public class CurrencyConverterFragment extends Fragment {
     MaterialButton convertButton;
     String[] countryNames = {"INR", "USD", "CAD", "CNY", "EUR", "NZD"};
     int flags[] = {R.drawable.ic_india, R.drawable.ic_usa, R.drawable.ic_canada, R.drawable.ic_china, R.drawable.ic_united, R.drawable.ic_newzealand};
-    TextView resultforcurrency_textview;
-    String FromUSD_INR;
+    TextView resultforcurrency_textview, howmuchfor1_textview, reverse1_textview;
+    String FromUSD_INR, ToINR_USD;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,6 +52,8 @@ public class CurrencyConverterFragment extends Fragment {
         amountEditText = view.findViewById(R.id.amountforcurrency_edittext);
         convertButton = view.findViewById(R.id.convert_button);
         resultforcurrency_textview = view.findViewById(R.id.resultforcurrency_textview);
+        howmuchfor1_textview = view.findViewById(R.id.howmuchfor1_textview);
+        reverse1_textview = view.findViewById(R.id.reverse1_textview);
 
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, countryNames);
@@ -63,8 +65,6 @@ public class CurrencyConverterFragment extends Fragment {
         CountrySymbolAdapter customAdapter = new CountrySymbolAdapter(getContext(), flags, countryNames);
         fromcurrency.setAdapter(customAdapter);
         tocurrency.setAdapter(customAdapter);*/
-
-
 
 
         convertButton.setOnClickListener(new View.OnClickListener() {
@@ -84,8 +84,8 @@ public class CurrencyConverterFragment extends Fragment {
     private void Convertfunction() {
 
 
-        String ToINR_USD=tocurrency.getSelectedItem().toString()+"_"+fromcurrency.getSelectedItem().toString();
-        FromUSD_INR=fromcurrency.getSelectedItem().toString()+"_"+tocurrency.getSelectedItem().toString();
+        ToINR_USD = tocurrency.getSelectedItem().toString() + "_" + fromcurrency.getSelectedItem().toString();
+        FromUSD_INR = fromcurrency.getSelectedItem().toString() + "_" + tocurrency.getSelectedItem().toString();
 
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -93,44 +93,43 @@ public class CurrencyConverterFragment extends Fragment {
         String strDate = sdf.format(date);
 
         CurrencyRetrofitInterface currencyRetrofitInterface = CurrencyRetrofitBuild.getRetrofit().create(CurrencyRetrofitInterface.class);
-        Call<JsonObject> call = currencyRetrofitInterface.getExchangeCurrency(FromUSD_INR+","+ToINR_USD, strDate);
+        Call<JsonObject> call = currencyRetrofitInterface.getExchangeCurrency(FromUSD_INR + "," + ToINR_USD, strDate);
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Log.d("TAG", "onResponse: "+response.body());
+                Log.d("TAG", "onResponse: " + response.body());
                 String u = String.valueOf(response.raw().request().url());
                 String a = u;
-                /*JsonObject res=response.body();
-                JsonObject object=res.getAsJsonObject("USD_INR");
-                JsonObject add=object.getAsJsonObject(strDate);*/
-
-
                 // USD >> INR
-                JsonObject res=response.body();
-                JsonObject object=res.getAsJsonObject(FromUSD_INR);
+
+                JsonObject res = response.body();
+                JsonObject object = res.getAsJsonObject(FromUSD_INR);
                 //JsonObject add=object.getAsJsonObject(strDate);
+                Double amount = Double.valueOf(amountEditText.getText().toString());
 
-                Double amount= Double.valueOf(amountEditText.getText().toString());
+                FromUSD_INR = String.valueOf(object.get(strDate));
 
+                Double h = Double.valueOf(FromUSD_INR);
+                double result = amount * h;
 
-                //add.get("val")
+                String r = String.valueOf(result);
 
-                    FromUSD_INR= String.valueOf(object.get(strDate));
+                String aa = "1 " + fromcurrency.getSelectedItem().toString() + " >> " + tocurrency.getSelectedItem().toString() + ": " + h;
 
-                    Double h= Double.valueOf(FromUSD_INR);
-                    double result=amount*h;
-
-                    String r= String.valueOf(result);
-
-                String aa = fromcurrency.getSelectedItem().toString()+" >> "+tocurrency.getSelectedItem().toString() + ": " + h;
-                String bb = fromcurrency.getSelectedItem().toString()+" >> "+tocurrency.getSelectedItem().toString() + ": " + h;
-
-
+                howmuchfor1_textview.setText(aa);
                 resultforcurrency_textview.setText(r);
 
+                //Reverse
 
+                JsonObject object1 = res.getAsJsonObject(ToINR_USD);
 
+                ToINR_USD = String.valueOf(object1.get(strDate));
 
+                Double h1 = Double.valueOf(ToINR_USD);
+
+                String bb = "1 " + tocurrency.getSelectedItem().toString() + " >> " + fromcurrency.getSelectedItem().toString() + ": " + h1;
+
+                reverse1_textview.setHint(bb);
 
 
 
@@ -152,11 +151,10 @@ public class CurrencyConverterFragment extends Fragment {
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
 
-                Toast.makeText(getContext(), "Fault in Internet"+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Fault in Internet" + t.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
-
 
 
     }
