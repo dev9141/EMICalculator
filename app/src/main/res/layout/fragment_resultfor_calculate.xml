@@ -24,7 +24,7 @@
             android:padding="10dp"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp"
-            app:strokeColor="@color/light_orange"
+            app:strokeColor="@color/dark_teal"
             app:strokeWidth="1.3dp">
 
 
@@ -164,7 +164,8 @@
                     android:layout_marginLeft="10dp"
                     android:hint="EMI / MONTH"
                     android:padding="10dp"
-                    android:textColorHint="@color/light_orange" />
+                    android:fontFamily="@font/donegal_one"
+                    android:textColorHint="@color/light_teal" />
 
                 <TextView
                     android:id="@+id/emirs_textview"
@@ -179,7 +180,8 @@
                     android:padding="10dp"
                     android:text="\u20B9 "
                     android:textAlignment="textEnd"
-                    android:textColor="@color/light_orange" />
+                    android:fontFamily="@font/donegal_one"
+                    android:textColorHint="@color/light_teal" />
 
 
             </RelativeLayout>
@@ -196,8 +198,9 @@
             android:layout_below="@+id/totalemipermonth"
             android:layout_margin="8dp"
             android:padding="10dp"
-            android:text="Statistic"
-            app:strokeColor="@color/light_orange" />
+            android:hint="Statistic"
+            android:fontFamily="@font/donegal_one"
+             />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/llStaticsheader"

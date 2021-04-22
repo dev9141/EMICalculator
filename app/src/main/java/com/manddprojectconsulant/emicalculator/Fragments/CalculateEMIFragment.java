@@ -61,39 +61,11 @@ public class CalculateEMIFragment extends Fragment {
         /*inadvance_button = view.findViewById(R.id.inadvance_button);
         inarrears_button = view.findViewById(R.id.inarrears_button);*/
         inmonthSwitchCompat = view.findViewById(R.id.inmonth_switch);
-        emitype=view.findViewById(R.id.emitype);
 
 
 
 
-        emitype.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (radioGroup.getId())
-                {
-                    case R.id.inadvance_button:
 
-                        inadvance= "In Advance";
-
-
-
-                        break;
-
-                    case  R.id.inarrears_button:
-
-                            inarrears="In Arrears";
-
-                        break;
-
-
-
-                }
-
-
-
-
-            }
-        });
 
 
 
