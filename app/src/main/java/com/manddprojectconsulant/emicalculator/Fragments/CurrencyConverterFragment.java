@@ -21,6 +21,7 @@ import com.manddprojectconsulant.emicalculator.CurrencyConvert.CurrencyRetrofitB
 import com.manddprojectconsulant.emicalculator.CurrencyConvert.CurrencyRetrofitInterface;
 import com.manddprojectconsulant.emicalculator.R;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -110,14 +111,29 @@ public class CurrencyConverterFragment extends Fragment {
                 FromUSD_INR = String.valueOf(object.get(strDate));
 
                 Double h = Double.valueOf(FromUSD_INR);
+
+                DecimalFormat formatter = new DecimalFormat("#.##");
+
                 double result = amount * h;
+                double fm = Double.parseDouble(String.valueOf(result));
+                String resultforformat=formatter.format(fm);
 
-                String r = String.valueOf(result);
 
-                String aa = "1 " + fromcurrency.getSelectedItem().toString() + " >> " + tocurrency.getSelectedItem().toString() + ": " + h;
+
+                //String r = String.valueOf(result);
+
+                //Decimal Format .2
+                double em2 = Double.parseDouble(String.valueOf(h));
+                String emil2 = formatter.format(em2);
+
+                String aa = "1 " + fromcurrency.getSelectedItem().toString() + " >> " + tocurrency.getSelectedItem().toString() + ": " + emil2;
+
+
+
+
 
                 howmuchfor1_textview.setText(aa);
-                resultforcurrency_textview.setText(r);
+                resultforcurrency_textview.setText(resultforformat);
 
                 //Reverse
 
@@ -127,9 +143,13 @@ public class CurrencyConverterFragment extends Fragment {
 
                 Double h1 = Double.valueOf(ToINR_USD);
 
-                String bb = "1 " + tocurrency.getSelectedItem().toString() + " >> " + fromcurrency.getSelectedItem().toString() + ": " + h1;
+                double re = Double.parseDouble(String.valueOf(h1));
+                String reverseformat = formatter.format(re);
 
-                reverse1_textview.setHint(bb);
+
+                String bb = "1" + tocurrency.getSelectedItem().toString() + " >> " + fromcurrency.getSelectedItem().toString() + ": " + reverseformat;
+
+                reverse1_textview.setText(bb);
 
 
 
