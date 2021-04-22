@@ -21,6 +21,10 @@ import com.manddprojectconsulant.emicalculator.CurrencyConvert.CurrencyRetrofitB
 import com.manddprojectconsulant.emicalculator.CurrencyConvert.CurrencyRetrofitInterface;
 import com.manddprojectconsulant.emicalculator.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -83,27 +87,46 @@ public class CurrencyConverterFragment extends Fragment {
         String ToINR_USD=tocurrency.getSelectedItem().toString()+"_"+fromcurrency.getSelectedItem().toString();
         FromUSD_INR=fromcurrency.getSelectedItem().toString()+"_"+tocurrency.getSelectedItem().toString();
 
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = Calendar.getInstance().getTime();
+        String strDate = sdf.format(date);
+
         CurrencyRetrofitInterface currencyRetrofitInterface = CurrencyRetrofitBuild.getRetrofit().create(CurrencyRetrofitInterface.class);
-        Call<JsonObject> call = currencyRetrofitInterface.getExchangeCurrency(fromcurrency.getSelectedItem().toString());
+        Call<JsonObject> call = currencyRetrofitInterface.getExchangeCurrency(FromUSD_INR+","+ToINR_USD, strDate);
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 Log.d("TAG", "onResponse: "+response.body());
+                String u = String.valueOf(response.raw().request().url());
+                String a = u;
+                /*JsonObject res=response.body();
+                JsonObject object=res.getAsJsonObject("USD_INR");
+                JsonObject add=object.getAsJsonObject(strDate);*/
+
+
+                // USD >> INR
                 JsonObject res=response.body();
-                JsonObject object=res.getAsJsonObject("results");
-                JsonObject add=object.getAsJsonObject("USD_INR");
+                JsonObject object=res.getAsJsonObject(FromUSD_INR);
+                //JsonObject add=object.getAsJsonObject(strDate);
+
                 Double amount= Double.valueOf(amountEditText.getText().toString());
 
 
                 //add.get("val")
 
-                    FromUSD_INR= String.valueOf(add.get("val"));
+                    FromUSD_INR= String.valueOf(object.get(strDate));
 
                     Double h= Double.valueOf(FromUSD_INR);
                     double result=amount*h;
 
                     String r= String.valueOf(result);
-                    resultforcurrency_textview.setText(r);
+
+                String aa = fromcurrency.getSelectedItem().toString()+" >> "+tocurrency.getSelectedItem().toString() + ": " + h;
+                String bb = fromcurrency.getSelectedItem().toString()+" >> "+tocurrency.getSelectedItem().toString() + ": " + h;
+
+
+                resultforcurrency_textview.setText(r);
 
 
 

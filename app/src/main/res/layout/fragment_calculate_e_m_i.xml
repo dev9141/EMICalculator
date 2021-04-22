@@ -129,7 +129,7 @@
             android:layout_below="@id/inmonth_switch"
             android:layout_marginTop="5dp"
             app:counterEnabled="true"
-            app:counterMaxLength="2"
+            app:counterMaxLength="3"
             app:counterTextColor="@color/light_orange">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -137,7 +137,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:maxLength="2"
+                android:maxLength="3"
                 android:textColorHint="@color/light_orange" />
 
         </com.google.android.material.textfield.TextInputLayout>

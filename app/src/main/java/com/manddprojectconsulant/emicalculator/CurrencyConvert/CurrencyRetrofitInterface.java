@@ -12,8 +12,11 @@ import retrofit2.http.Query;
 
 public interface CurrencyRetrofitInterface  {
 
-    @GET("convert?apiKey=7128baa679983d3db715&q=USD_INR,INR_USD")
-    Call<JsonObject> getExchangeCurrency(@Query("USD_INR") String USD_INR);
+    @GET("convert?apiKey=7128baa679983d3db715&compact=ultra")
+    Call<JsonObject> getExchangeCurrency(@Query("q") String USD_INR,
+                                         @Query("date") String date);
+
+    //&compact=ultra&date=2021-04-22
 
 
 
