@@ -147,7 +147,7 @@ public class CurrencyConverterFragment extends Fragment {
                 String reverseformat = formatter.format(re);
 
 
-                String bb = "1" + tocurrency.getSelectedItem().toString() + " >> " + fromcurrency.getSelectedItem().toString() + ": " + reverseformat;
+                String bb = "1 " + tocurrency.getSelectedItem().toString() + " >> " + fromcurrency.getSelectedItem().toString() + ": " + reverseformat;
 
                 reverse1_textview.setText(bb);
 
