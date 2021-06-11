@@ -1,9 +1,11 @@
 package com.manddprojectconsulant.emicalculator.Activites;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.View;
+
 
 import com.google.android.material.button.MaterialButton;
 import com.manddprojectconsulant.emicalculator.Fragments.CalculateEMIFragment;
@@ -14,13 +16,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     SplashFragment splashFragment = new SplashFragment();
-
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         getSupportFragmentManager().beginTransaction().replace(R.id.relative,splashFragment).commit();
 
     }
