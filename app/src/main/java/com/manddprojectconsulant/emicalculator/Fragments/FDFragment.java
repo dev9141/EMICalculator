@@ -133,7 +133,7 @@ public class FDFragment extends Fragment {
 
         if (choiceforPeriod.getSelectedItem().equals("Days")) {
 
-            double t1 = t / 12;
+            double t1 = t / 365;
 
 
             double n = 1;
