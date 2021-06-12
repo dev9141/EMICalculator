@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,201 +9,242 @@
     android:focusable="false"
     android:focusableInTouchMode="true"
     android:padding="10dp"
-    tools:context=".Fragments.RDFragment">
+    android:scrollbars="none">
 
-    <RelativeLayout
-        android:id="@+id/_amount"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content">
 
-
-        <TextView
-            android:id="@+id/amount_textinput"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/rd_principle_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Amount"
-            android:padding="5dp"
-            android:textColorHint="@color/light_teal"
-            android:textSize="18sp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/rd_amount_textinput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/donegal_one"
+                android:hint="Amount"
+                android:padding="5dp"
+                android:textColorHint="@color/light_teal"
+                android:textSize="18sp" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/rdamount_range"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rd_amount_textinput"
+                android:layout_marginTop="2dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="12"
+                app:counterTextColor="@color/light_teal">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/rdamount_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="12"
+                    android:text=""
+                    android:textColorHint="@color/light_teal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rdtenure_range"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rd_principle_layout">
+
+            <TextView
+                android:id="@+id/rd_tenure_textinput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/donegal_one"
+                android:hint="No of Period"
+                android:padding="5dp"
+                android:textColorHint="@color/light_teal"
+                android:textSize="18sp" />
+
+
+            <Spinner
+                android:id="@+id/rdchoiceforspinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/rd_tenure_textinput" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/rdten_textinput"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rd_tenure_textinput"
+                android:layout_marginTop="2dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="3"
+                app:counterTextColor="@color/light_teal">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/rdnoofperiod_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textColorHint="@color/light_teal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rdrate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rdtenure_range">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/rdrate_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/donegal_one"
+                android:hint="Rate of Interest"
+                android:padding="5dp"
+                android:textColorHint="@color/light_teal"
+                android:textSize="18sp" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/rdrate_textinput"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rdrate_text"
+                android:layout_marginTop="2dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="5"
+                app:counterTextColor="@color/light_teal">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/rdinterestrate_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint=""
+                    android:inputType="numberDecimal"
+                    android:maxLength="5"
+                    android:textColorHint="@color/light_teal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/rdcalculate_button"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_fixed"
+            android:fontFamily="@font/donegal_one"
+            android:padding="10dp"
+            android:text="Calculate FD"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_teal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rdrate" />
+
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="20dp"
+            android:background="@color/light_teal"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rdcalculate_button" />
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/rdamount_range"
+            android:id="@+id/rdmaturityvalue"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/amount_textinput"
-            android:layout_marginTop="5dp"
-            app:counterEnabled="true"
-            app:counterMaxLength="12"
-            app:counterTextColor="@color/light_teal">
+            android:layout_marginTop="10dp"
+            app:counterTextColor="@color/light_teal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/rdamount_edittext"
+                android:id="@+id/rdmaturityvalue_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLength="12"
-                android:text=""
-                android:textColorHint="@color/light_teal" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/tenure_range"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/_amount">
-
-        <TextView
-            android:id="@+id/tenure_textinput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Tenure(Years)"
-            android:padding="5dp"
-            android:textColorHint="@color/light_teal"
-            android:textSize="18sp" />
-
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/inmonth_switch"
-            style="@style/Widget.AppCompat.CompoundButton.Switch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:backgroundTint="@color/dark_teal"
-            android:checked="false"
-            android:hint="In Months"
-            android:padding="1dp"
-            android:textColorHint="@color/light_teal" />
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inmonth_textinput"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/inmonth_switch"
-            android:layout_marginTop="5dp"
-            android:visibility="gone"
-            app:counterEnabled="true"
-            app:counterMaxLength="3"
-            app:counterTextColor="@color/light_orange">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inmonth_edittext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLength="3"
-                android:textColorHint="@color/light_orange" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ten_textinput"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/inmonth_switch"
-            android:layout_marginTop="5dp"
-            app:counterEnabled="true"
-            app:counterMaxLength="3"
-            app:counterTextColor="@color/light_teal">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tenure_edittext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLength="3"
-                android:textColorHint="@color/light_teal" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tenure_range"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tenure_range">
-
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/rate_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:hint="Interest Rate"
-            android:padding="5dp"
-            android:textColorHint="@color/light_teal"
-            android:textSize="18sp" />
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/rate_textinput"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/rate_text"
-            android:layout_marginTop="5dp"
-            app:counterEnabled="true"
-            app:counterMaxLength="5"
-            app:counterTextColor="@color/light_teal">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/interestrate_edittext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint=""
+                android:enabled="false"
+                android:fontFamily="@font/donegal_one"
+                android:hint="Maturity Value (A)"
                 android:inputType="numberDecimal"
-                android:maxLength="5"
-                android:textColorHint="@color/light_teal" />
+                android:textColor="@color/light_teal"
+                android:textColorHint="@color/light_teal"
+                android:visibility="gone"
+
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-    </RelativeLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/calculate_button"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rate"
-        android:drawableTop="@drawable/ic_fixed"
-        android:padding="10dp"
-        android:text="Calculate RD"
-        android:textAllCaps="false"
-        android:textColor="@color/dark_teal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rate" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/rdinterestearnedamount_t"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:counterTextColor="@color/light_teal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/rdmaturityvalue">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/rdinterestearnedamount_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:fontFamily="@font/donegal_one"
+                android:hint="Interest Earned Amount (I)"
+                android:inputType="numberDecimal"
+                android:textColor="@color/light_teal"
+                android:textColorHint="@color/light_teal"
+                android:visibility="gone"
+
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/light_grey"
-        android:orientation="vertical"
-        android:layout_margin="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calculate_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
