@@ -8,35 +8,37 @@
     tools:context=".Fragments.CompareFragment">
 
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardtocompare"
-            style="@style/Widget.MaterialComponents.CardView"
+            android:id="@+id/materialCardView"
             android:layout_width="match_parent"
-            android:layout_height="380dp"
+            android:layout_height="350dp"
             android:layout_margin="10dp"
-            android:layout_marginTop="20dp"
             android:padding="10dp"
             app:cardCornerRadius="10dp"
+            app:layout_constraintHeight_percent="0.25"
             app:cardElevation="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/light_teal"
             app:strokeWidth="1dp">
 
             <LinearLayout
+
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="2"
-                android:layout_margin="10dp">
+                android:weightSum="2">
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="280dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="250dp"
                     android:layout_weight="1"
+                    android:layout_margin="8dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -44,8 +46,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"
-                        android:gravity="center"
                         android:fontFamily="@font/donegal_one"
+                        android:gravity="center"
                         android:hint="@string/loan_one"
                         android:padding="10dp" />
 
@@ -102,17 +104,15 @@
 
                 <View
                     android:layout_width="1dp"
-                    android:layout_height="200dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="50dp"
+                    android:layout_height="230dp"
+
+                    android:layout_gravity="center_vertical"
                     android:background="@color/dark_teal" />
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="280dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="250dp"
+                   android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -121,8 +121,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"
-                        android:gravity="center"
                         android:fontFamily="@font/donegal_one"
+                        android:gravity="center"
                         android:hint="@string/loan_two"
                         android:padding="10dp" />
 
@@ -130,7 +130,6 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="160dp"
                         android:layout_height="wrap_content"
-
                         android:layout_gravity="center">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -177,7 +176,14 @@
 
                 </LinearLayout>
 
+
+
+
+
             </LinearLayout>
+
+
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/compare_button"
@@ -188,8 +194,12 @@
                 android:layout_margin="20dp"
                 android:fontFamily="@font/donegal_one"
                 android:padding="20dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/light_teal"
                 android:textAllCaps="false"
                 android:hint="@string/compare" />
+
+
 
 
         </com.google.android.material.card.MaterialCardView>
@@ -200,12 +210,14 @@
             style="@style/Widget.MaterialComponents.CardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/cardtocompare"
             android:layout_margin="10dp"
             android:padding="10dp"
             android:visibility="gone"
             app:cardCornerRadius="10dp"
             app:cardElevation="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView"
             app:strokeWidth="1dp">
 
 
@@ -220,7 +232,6 @@
                     android:id="@+id/emi_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:hint="@string/emi_monthly_payment"
                     android:textSize="20sp" />
@@ -249,7 +260,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_toEndOf="@id/resultone"
                     android:layout_toRightOf="@id/resultone"
-                    android:background="@color/light_orange" />
+                    android:background="@color/light_teal" />
 
 
                 <TextView
@@ -284,16 +295,18 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardinterestrate"
             style="@style/Widget.MaterialComponents.CardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/cardinterestrate"
-            android:layout_below="@id/cardmonthlyemi"
             android:layout_margin="10dp"
             android:padding="10dp"
             android:visibility="gone"
             app:cardCornerRadius="10dp"
             app:cardElevation="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardmonthlyemi"
             app:strokeWidth="1dp">
 
 
@@ -307,7 +320,7 @@
                     android:id="@+id/totalinterestpayable_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+
                     android:gravity="center"
                     android:hint="@string/total_interest_payable"
                     android:textSize="20sp" />
@@ -336,7 +349,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_toEndOf="@id/resultotalinterest_one"
                     android:layout_toRightOf="@id/resultotalinterest_one"
-                    android:background="@color/light_orange" />
+                    android:background="@color/light_teal" />
 
 
                 <TextView
@@ -371,16 +384,18 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            style="@style/Widget.MaterialComponents.CardView"
             android:id="@+id/cardtotal"
-             android:layout_width="match_parent"
+            style="@style/Widget.MaterialComponents.CardView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/cardinterestrate"
             android:layout_margin="10dp"
             android:padding="10dp"
             android:visibility="gone"
             app:cardCornerRadius="10dp"
             app:cardElevation="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardinterestrate"
             app:strokeWidth="1dp">
 
 
@@ -394,7 +409,6 @@
                     android:id="@+id/totalpayable_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:hint="@string/total_payment_principal_interest"
                     android:textSize="20sp" />
@@ -423,7 +437,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_toEndOf="@id/resultotalpayable_one"
                     android:layout_toRightOf="@id/resultotalpayable_one"
-                    android:background="@color/light_orange" />
+                    android:background="@color/light_teal" />
 
 
                 <TextView
@@ -457,5 +471,10 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-    </RelativeLayout>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>

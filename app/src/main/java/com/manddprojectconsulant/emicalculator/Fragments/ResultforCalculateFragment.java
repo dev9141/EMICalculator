@@ -58,7 +58,7 @@ public class ResultforCalculateFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_resultfor_calculate, container, false);
 
 
-        ArrStatistics = new ArrayList<>();
+
 
         principal = getArguments().getString("principal");
         tenure = getArguments().getString("tenure");
@@ -102,7 +102,14 @@ public class ResultforCalculateFragment extends Fragment {
 
         //set Text value
         loanamountTextView.setText("\u20B9 " + formatter.format(Double.parseDouble(principal+"")));
-        tenure_text.setText(tenure + " years");
+
+        if (tenureIn.equals("Year")){
+            tenure_text.setText(tenure + " Years");
+
+        }else{
+            tenure_text.setText(tenure + " Months");
+
+        }
         iofr_text.setText(rate + " %");
         emirs_textview.setText("\u20B9 " + emiformatting);
 
@@ -118,7 +125,8 @@ public class ResultforCalculateFragment extends Fragment {
                 //Formula to get both path Principal and interest from EMI
                 //MP = (tla * IR) / 12  , Where if IR is in percentage then IR = (IR/100)
                 //MI = EMI - MP
-
+                ArrStatistics = new ArrayList<>();
+                ArrStatistics.clear();
 
                 llStaticsheader.setVisibility(View.VISIBLE);
                 rv_Statistics.setVisibility(View.VISIBLE);
