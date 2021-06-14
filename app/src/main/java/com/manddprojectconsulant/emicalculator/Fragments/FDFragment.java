@@ -86,6 +86,8 @@ public class FDFragment extends Fragment {
 
             double n = 1;
 
+
+
             double temp = (1 + r1 / n);
 
             double result = Math.round(P * Math.pow(temp, (n * t)));
