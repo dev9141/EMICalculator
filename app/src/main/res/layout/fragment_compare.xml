@@ -2,50 +2,46 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.CompareFragment">
 
+    android:scrollbars="none">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/materialCardView"
+            android:id="@+id/mainCardview"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_margin="10dp"
+            android:layout_height="360dp"
             android:padding="10dp"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintHeight_percent="0.25"
-            app:cardElevation="20dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/light_teal"
             app:strokeWidth="1dp">
 
             <LinearLayout
-
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="250dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_margin="8dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/donegal_one"
                         android:gravity="center"
                         android:hint="@string/loan_one"
@@ -100,27 +96,29 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
+
+
+
+
+
+
                 </LinearLayout>
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="230dp"
 
-                    android:layout_gravity="center_vertical"
-                    android:background="@color/dark_teal" />
+
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="250dp"
-                   android:layout_margin="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/donegal_one"
                         android:gravity="center"
                         android:hint="@string/loan_two"
@@ -174,16 +172,14 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
+
+
+
+
                 </LinearLayout>
 
 
-
-
-
             </LinearLayout>
-
-
-
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/compare_button"
@@ -198,8 +194,6 @@
                 app:strokeColor="@color/light_teal"
                 android:textAllCaps="false"
                 android:hint="@string/compare" />
-
-
 
 
         </com.google.android.material.card.MaterialCardView>
@@ -217,7 +211,7 @@
             app:cardElevation="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+            app:layout_constraintTop_toBottomOf="@+id/mainCardview"
             app:strokeWidth="1dp">
 
 
