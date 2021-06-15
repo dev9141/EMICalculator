@@ -25,7 +25,7 @@ public class RDFragment extends Fragment {
     String[] choice = {"", "Months"};
     Spinner choiceforPeriod;
 
-    double A, m, aa = 0.0;
+    double A, m, aa ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -81,6 +81,8 @@ public class RDFragment extends Fragment {
 
 
         double n = 4;
+
+        aa=0.0;
 
 
 
